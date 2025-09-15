@@ -1,0 +1,17 @@
+def palindrome?(string)
+  # 1 - Limpeza da string: vai converter cada caracter para minúsculo e remover os que são não-alfanuméricos.
+  clean_string = string.downcase.gsub(/\W/, '') 
+    # 2 - remover os "nonword characters" 
+    # A expressão regular \W (W maiúsculo) corresponde a qualquer caractere que não seja uma letra, número ou underscore. Usaremos
+    # gsub(/\W/, '') para substituir todas as ocorrências desses caracteres por uma string vazia, efetivamente removendo-os.
+
+  # 3 - Para comparar a string limpa com sua versão invertida.
+  # Resultado (true ou false) é retornado implicitamente.
+  clean_string == clean_string.reverse
+end
+
+# Exemplos de uso e casos de teste para validacao
+# puts palindrome?("A man, a plan, a canal -- Panama")  # Deve retornar: true
+# puts palindrome?("Madam, I'm Adam!")             # Deve retornar: true
+# puts palindrome?("Abracadabra")                    # Deve retornar: false
+# puts palindrome?("aibofobia")             #Deve retornar: true
